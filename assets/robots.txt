@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /console/
+Disallow: /media/
+Disallow: /static/
+Allow: /
+
+Sitemap: /sitemap.xml
