@@ -24,15 +24,16 @@ $(function () {
                 // url: "/assets/mail/contact_me.php",
                 url: "https://www.zhenzhidaole.com/api/contact/collect/",
                 type: "POST",
-                data: {
+                data: JSON.stringify({
                     name: name,
                     mobile: phone,
                     email: email,
                     remark: message,
                     item:"pbkdf2_sha256$36000$7XFDwg86FTYN$nTIxl4PCMbVeP0Gb1E8mTWTMn1iE06UNXNgBxqCqpM0=",
                     ifsendmail:true,
-                },
-                
+                }),
+                datatype:'json',
+                contentType: "application/json",
                 cache: false,
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader ("Authorization", "Basic ZmVlZGJhY2s6ZmVlZGJhY2syMCE5");
@@ -61,11 +62,7 @@ $(function () {
                         )
                         .append("</button>");
                     $("#success > .alert-danger").append(
-                        $("<strong>").text(
-                            "Sorry " +
-                                firstName +
-                                ", it seems that my mail server is not responding. Please try again later!"
-                        )
+                        $("<strong>").text( "很抱歉 " + firstName + ", 邮件服务器暂无反应. 请稍后再试!" )
                     );
                     $("#success > .alert-danger").append("</div>");
                     //clear all fields
