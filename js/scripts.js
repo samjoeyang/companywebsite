@@ -53,4 +53,25 @@
     // Collapse the navbar when page is scrolled
     $(window).on('scroll', navbarCollapse);
 
+
+    // $("sendMessageButton").on('click',function(){
+
+    //     data = {
+    //         subject: "New Message from website",
+    //         text_content: "联系人："+('name').val()+" | 电子邮件："+$('email').val()+" | 联系电话："+$('phone').val()+" | 维权内容："+$('message').val(),
+    //         html_content: "<a href='{{ request.scheme }}://{{ request.get_host}}/case/feedback/1/' target='_blank'>点击查看</a>"
+    //     }
+    //     $.ajax({
+    //         type:"post",
+    //         url:'/case/sendmail/',
+    //         data:data,
+    //         success:function(xhr){
+    //             console.log(xhr)
+    //         },
+    //         error:function(xhr){ 
+    //             console.log(xhr)
+    //         }
+    //     });
+    // });
+
 })(jQuery); // End of use strict

@@ -21,14 +21,18 @@ $(function () {
             $this = $("#sendMessageButton");
             $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
             $.ajax({
-                url: "/assets/mail/contact_me.php",
+                // url: "/assets/mail/contact_me.php",
+                url: "/lyci/api/contact/",
                 type: "POST",
                 data: {
                     name: name,
-                    phone: phone,
+                    mobile: phone,
                     email: email,
-                    message: message,
+                    remark: message,
+                    item:"pbkdf2_sha256$36000$7XFDwg86FTYN$nTIxl4PCMbVeP0Gb1E8mTWTMn1iE06UNXNgBxqCqpM0=",
+                    ifsendmail:true,
                 },
+                
                 cache: false,
                 success: function () {
                     // Success message
