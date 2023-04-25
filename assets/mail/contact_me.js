@@ -39,9 +39,9 @@ $(function () {
                 datatype:'json',
                 contentType: "application/json",
                 cache: false,
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader ("Authorization", "Basic ZmVlZGJhY2s6ZmVlZGJhY2syMCE5");
-                  },
+                // beforeSend: function (xhr) {
+                //     xhr.setRequestHeader ("Authorization", "Basic ZmVlZGJhY2s6ZmVlZGJhY2syMCE5");
+                //   },
                 success: function () {
                     // Success message
                     $("#success").html("<div class='alert alert-success'>");
