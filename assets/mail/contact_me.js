@@ -20,7 +20,12 @@ $(function () {
             }
             $this = $("#sendMessageButton");
             $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
+            // $.cors(ajaxUrl, {}, function (json) {
+            //     if (json.code == 0) {}
+            //   });
             $.ajax({
+                cors: true,
+                crossDomain: true,
                 type: "POST",
                 // url: "/assets/mail/contact_me.php",
                 // url: "https://www.zhenzhidaole.com/api/contact/collect/",
