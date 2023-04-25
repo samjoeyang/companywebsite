@@ -21,16 +21,20 @@ $(function () {
             $this = $("#sendMessageButton");
             $this.prop("disabled", true); // Disable submit button until AJAX call is complete to prevent duplicate messages
             $.ajax({
-                // url: "/assets/mail/contact_me.php",
-                url: "https://www.zhenzhidaole.com/api/contact/collect/",
                 type: "POST",
+                // url: "/assets/mail/contact_me.php",
+                // url: "https://www.zhenzhidaole.com/api/contact/collect/",
+                url: "https://nog4azx7rc.execute-api.ap-east-1.amazonaws.com/PyUNONotification",
+                // data: JSON.stringify({
+                //     name: name,
+                //     mobile: phone,
+                //     email: email,
+                //     remark: message,
+                //     item:"pbkdf2_sha256$36000$7XFDwg86FTYN$nTIxl4PCMbVeP0Gb1E8mTWTMn1iE06UNXNgBxqCqpM0=",
+                //     ifsendmail:true,
+                // }),
                 data: JSON.stringify({
-                    name: name,
-                    mobile: phone,
-                    email: email,
-                    remark: message,
-                    item:"pbkdf2_sha256$36000$7XFDwg86FTYN$nTIxl4PCMbVeP0Gb1E8mTWTMn1iE06UNXNgBxqCqpM0=",
-                    ifsendmail:true,
+                    message: name + "[" + phone + " " + email + "],留言说:" + message
                 }),
                 datatype:'json',
                 contentType: "application/json",
