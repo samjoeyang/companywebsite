@@ -48,7 +48,8 @@ $(function () {
                 // beforeSend: function (xhr) {
                 //     xhr.setRequestHeader ("Authorization", "Basic ZmVlZGJhY2s6ZmVlZGJhY2syMCE5");
                 //   },
-                success: function () {
+                success: function (res) {
+                    console.log("suc:" + res.message)
                     // Success message
                     $("#success").html("<div class='alert alert-success'>");
                     $("#success > .alert-success")
@@ -63,7 +64,8 @@ $(function () {
                     //clear all fields
                     $("#contactForm").trigger("reset");
                 },
-                error: function () {
+                error: function (err) {
+                    console.log("err:" + err)
                     // Fail message
                     $("#success").html("<div class='alert alert-danger'>");
                     $("#success > .alert-danger")
@@ -72,17 +74,14 @@ $(function () {
                         )
                         .append("</button>");
                     $("#success > .alert-danger").append(
-                        $("<strong>").text( "很抱歉 " + firstName + ", 邮件服务器暂无反应. 请稍后再试!" )
+                        $("<strong>").text( "很抱歉 " + firstName + ", 邮件服务器暂无反应. 请稍后再试!" + err.message)
                     );
                     $("#success > .alert-danger").append("</div>");
                     //clear all fields
                     $("#contactForm").trigger("reset");
                 },
-                complete: function (res) {
-                    console(res)
-                    if (res.statusCode==200) {
-
-                    }
+                complete: function (xhr) {
+                    var result = JSON.parse(xhr.responseText)
                     setTimeout(function () {
                         $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
                     }, 1000);
