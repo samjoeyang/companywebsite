@@ -29,7 +29,7 @@ $(function () {
                 type: "POST",
                 // url: "/assets/mail/contact_me.php",
                 // url: "https://www.zhenzhidaole.com/api/contact/collect/",
-                url: "https://nog4azx7rc.execute-api.ap-east-1.amazonaws.com/PyUNONotification",
+                url: "https://nog4azx7rc.execute-api.ap-east-1.amazonaws.com/PyUNONotification?email="+email+"&message=" + name + "[" + phone + " " + email + "],留言说:" + message,
                 // data: JSON.stringify({
                 //     name: name,
                 //     mobile: phone,
@@ -38,18 +38,18 @@ $(function () {
                 //     item:"pbkdf2_sha256$36000$7XFDwg86FTYN$nTIxl4PCMbVeP0Gb1E8mTWTMn1iE06UNXNgBxqCqpM0=",
                 //     ifsendmail:true,
                 // }),
-                data: {
+                dataType: 'json',
+                data: JSON.stringify({
                     email: email,
                     message: name + "[" + phone + " " + email + "],留言说:" + message
-                },
-                datatype:'json',
+                }),
                 contentType: "application/json",
                 cache: false,
                 // beforeSend: function (xhr) {
                 //     xhr.setRequestHeader ("Authorization", "Basic ZmVlZGJhY2s6ZmVlZGJhY2syMCE5");
                 //   },
                 success: function (res) {
-                    console.log("suc:" + res.message)
+                    // console.log("suc:" + res.message)
                     // Success message
                     $("#success").html("<div class='alert alert-success'>");
                     $("#success > .alert-success")
@@ -58,14 +58,13 @@ $(function () {
                         )
                         .append("</button>");
                     $("#success > .alert-success").append(
-                        "<strong>Your message has been sent. </strong>"
+                        "<strong>Your message has been sent. " + res.statusCode + "</strong>"
                     );
                     $("#success > .alert-success").append("</div>");
                     //clear all fields
                     $("#contactForm").trigger("reset");
                 },
                 error: function (err) {
-                    console.log("err:" + err)
                     // Fail message
                     $("#success").html("<div class='alert alert-danger'>");
                     $("#success > .alert-danger")
