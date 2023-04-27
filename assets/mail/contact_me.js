@@ -29,7 +29,7 @@ $(function () {
                 type: "POST",
                 // url: "/assets/mail/contact_me.php",
                 // url: "https://www.zhenzhidaole.com/api/contact/collect/",
-                url: "https://nog4azx7rc.execute-api.ap-east-1.amazonaws.com/PyUNONotification?email="+email, // +"&message=" + name + "[" + phone + " " + email + "],留言说:" + message,
+                url: "https://nog4azx7rc.execute-api.ap-east-1.amazonaws.com/PyUNONotification", // ?email="+email+"&message=" + name + "[" + phone + " " + email + "],留言说:" + message,
                 // data: JSON.stringify({
                 //     name: name,
                 //     mobile: phone,
@@ -40,8 +40,10 @@ $(function () {
                 // }),
                 dataType: 'json',
                 data: JSON.stringify({
+                    subject: firstName + "在官网上给你发送了留言",
+                    phone: phone,
                     email: email,
-                    message: name + "[" + phone + " " + email + "],留言说:" + message,
+                    message: name + "[官网 " + phone + " " + email + "],留言说:" + message,
                     item:"pbkdf2_sha256$36000$7XFDwg86FTYN$nTIxl4PCMbVeP0Gb1E8mTWTMn1iE06UNXNgBxqCqpM0="
                 }),
                 contentType: "application/json",
@@ -50,7 +52,6 @@ $(function () {
                 //     xhr.setRequestHeader ("Authorization", "Basic ZmVlZGJhY2s6ZmVlZGJhY2syMCE5");
                 //   },
                 success: function (res) {
-                    // console.log("suc:" + res.message)
                     // Success message
                     $("#success").html("<div class='alert alert-success'>");
                     $("#success > .alert-success")
@@ -59,11 +60,12 @@ $(function () {
                         )
                         .append("</button>");
                     $("#success > .alert-success").append(
-                        "<strong>Your message has been sent. " + res.statusCode + "</strong>"
+                        "<strong>Your message has been sent. </strong>"
                     );
                     $("#success > .alert-success").append("</div>");
                     //clear all fields
                     $("#contactForm").trigger("reset");
+
                 },
                 error: function (err) {
                     // Fail message
@@ -77,11 +79,9 @@ $(function () {
                         $("<strong>").text( "很抱歉 " + firstName + ", 邮件服务器暂无反应. 请稍后再试!" + err.message)
                     );
                     $("#success > .alert-danger").append("</div>");
-                    //clear all fields
-                    $("#contactForm").trigger("reset");
+
                 },
                 complete: function (xhr) {
-                    // var result = JSON.parse(xhr.responseText)
                     setTimeout(function () {
                         $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
                     }, 1000);
