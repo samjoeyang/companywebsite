@@ -29,7 +29,7 @@ $(function () {
                 type: "POST",
                 // url: "/assets/mail/contact_me.php",
                 // url: "https://www.zhenzhidaole.com/api/contact/collect/",
-                url: "https://nog4azx7rc.execute-api.ap-east-1.amazonaws.com/PyUNONotification?email="+email+"&message=" + name + "[" + phone + " " + email + "],留言说:" + message,
+                url: "https://nog4azx7rc.execute-api.ap-east-1.amazonaws.com/PyUNONotification?email="+email, // +"&message=" + name + "[" + phone + " " + email + "],留言说:" + message,
                 // data: JSON.stringify({
                 //     name: name,
                 //     mobile: phone,
@@ -41,7 +41,8 @@ $(function () {
                 dataType: 'json',
                 data: JSON.stringify({
                     email: email,
-                    message: name + "[" + phone + " " + email + "],留言说:" + message
+                    message: name + "[" + phone + " " + email + "],留言说:" + message,
+                    item:"pbkdf2_sha256$36000$7XFDwg86FTYN$nTIxl4PCMbVeP0Gb1E8mTWTMn1iE06UNXNgBxqCqpM0="
                 }),
                 contentType: "application/json",
                 cache: false,
