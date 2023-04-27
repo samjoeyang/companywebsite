@@ -81,7 +81,7 @@ $(function () {
                     $("#contactForm").trigger("reset");
                 },
                 complete: function (xhr) {
-                    var result = JSON.parse(xhr.responseText)
+                    // var result = JSON.parse(xhr.responseText)
                     setTimeout(function () {
                         $this.prop("disabled", false); // Re-enable submit button when AJAX call is complete
                     }, 1000);
