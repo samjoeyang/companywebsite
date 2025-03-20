@@ -23,9 +23,9 @@ $(function () {
             // $.cors(ajaxUrl, {}, function (json) {
             //     if (json.code == 0) {}
             //   });
-            // sendEmailbyVercelAPI(name, phone, email, message);
+            sendEmailbyVercelAPI(name, phone, email, message);
 
-            sendEmailbyMailgun(name, phone, email, message);
+            // sendEmailbyMailgun(name, phone, email, message);
         },
         filter: function () {
             return $(this).is(":visible");
