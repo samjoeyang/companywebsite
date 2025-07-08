@@ -1,0 +1,47 @@
+/* 产品价格卡片样式 */
+.pricing-card {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0 !important;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.pricing-card .card-header {
+  padding: 25px 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.pricing-card .card-body {
+  padding: 30px 20px;
+}
+
+.card-title.pricing {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.card-title.pricing span {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.pricing-card .btn {
+  border-radius: 30px;
+  font-weight: 600;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.pricing-card hr {
+  margin: 20px 0;
+  border-color: #f5f5f5;
+} 
